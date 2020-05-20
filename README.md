@@ -1,7 +1,7 @@
-# react-scripts-evaluator-action
+# stryker-evaluator-action
 React Scripts evaluator action for Tryber projects
 
-This action evaluate Tryber projects with [React Scripts](https://www.npmjs.com/package/react-scripts) library.
+This action evaluate Tryber projects with [React Scripts](https://www.npmjs.com/package/stryker) library.
 
 ## Inputs
 
@@ -26,7 +26,7 @@ Pull Request number that trigger build.
 ## Usage example
 
 ```yml
-- uses: betrybe/react-scripts-evaluator-action@v3
+- uses: betrybe/stryker-evaluator-action@v3
   with:
     repository-test-name: my-org/my-repo
     repository-test-branch: master # master is default
@@ -36,7 +36,7 @@ Pull Request number that trigger build.
 ```yml
 - name: React Scripts evaluator
   id: evaluator
-  uses: betrybe/react-scripts-evaluator-action@v3
+  uses: betrybe/stryker-evaluator-action@v3
 - name: Next step
   uses: another-github-action
   with:

@@ -1,5 +1,5 @@
 {
-  "name": "react-scripts-evaluator-action",
+  "name": "stryker-evaluator-action",
   "version": "1.0.0",
   "description": "React Scripts evaluator action for Tryber projects",
   "main": "evaluator.js",
@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/betrybe/react-scripts-evaluator-action.git"
+    "url": "git+https://github.com/betrybe/stryker-evaluator-action.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/betrybe/react-scripts-evaluator-action/issues"
+    "url": "https://github.com/betrybe/stryker-evaluator-action/issues"
   },
-  "homepage": "https://github.com/betrybe/react-scripts-evaluator-action#readme",
+  "homepage": "https://github.com/betrybe/stryker-evaluator-action#readme",
   "devDependencies": {
     "jest": "^25.3.0"
   }
