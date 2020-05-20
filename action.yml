@@ -1,0 +1,21 @@
+name: 'React Scripts evaluator'
+description: 'React Scripts evaluator action for Tryber projects'
+inputs:
+  repository-test-name:
+    description: 'GitHub repository that store the tests'
+    required: true
+  repository-test-branch:
+    description: 'GitHub specific branch'
+    default: 'master'
+    required: true
+outputs:
+  result:
+    description: 'React Scripts unit tests JSON results in base64 format.'
+  pr-number:
+    description: 'Pull Request number that trigger build.'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.repository-test-name }}
+    - ${{ inputs.repository-test-branch }}
