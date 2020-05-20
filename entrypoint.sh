@@ -14,7 +14,7 @@ npm install -g @stryker-mutator/javascript-mutator
 CONFIGS=$(find ./stryker -type f -name "*.conf.json")
 for config in $CONFIGS; do
   stryker run $config
-  node evaluator.js "$config"
+  node /evaluator.js "$config"
 done
 
 if [ $? != 0 ]; then
