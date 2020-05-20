@@ -8,9 +8,13 @@ git clone --branch $REPOSITORY_BRANCH https://github.com/$REPOSITORY_NAME.git /p
 rm -rf /project-tests/.git
 cp -r /project-tests/* .
 npm install
-npm install -g react-scripts
-CI=true react-scripts test --json --outputFile=evaluation.json
-node /evaluator.js evaluation.json .trybe/requirements.json result.json
+npm install -g stryker
+
+CONFIGS=$(find ./stryker -type f -name "*.conf.json")
+for config in $CONFIGS; do
+  stryker run $config
+  node evaluator.js "$config"
+done
 
 if [ $? != 0 ]; then
   echo "Execution error"

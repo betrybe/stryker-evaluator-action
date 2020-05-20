@@ -1,5 +1,5 @@
-name: 'React Scripts evaluator'
-description: 'React Scripts evaluator action for Tryber projects'
+name: 'Stryker evaluator'
+description: 'Stryker evaluator action for Tryber projects'
 inputs:
   repository-test-name:
     description: 'GitHub repository that store the tests'
@@ -10,7 +10,7 @@ inputs:
     required: true
 outputs:
   result:
-    description: 'React Scripts unit tests JSON results in base64 format.'
+    description: 'Stryker unit tests JSON results in base64 format.'
   pr-number:
     description: 'Pull Request number that trigger build.'
 runs:
