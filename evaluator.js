@@ -8,7 +8,7 @@ const WRONG_ANSWER_GRADE = 1;
 const githubUsername = process.env.GITHUB_ACTOR || 'no_actor';
 const githubRepositoryName = process.env.GITHUB_REPOSITORY || 'no_repository';
 
-const requisiteName = process.argv[2].split('/')[2].split('.')[0] + ' stryker test';
+const requisiteName = process.argv[2].split('/')[2].split('.')[0] + ' mutation test';
 
 
 let fullArray = [];
