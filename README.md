@@ -1,7 +1,7 @@
 # stryker-evaluator-action
-React Scripts evaluator action for Tryber projects
+Stryker evaluator action for Tryber projects
 
-This action evaluate Tryber projects with [React Scripts](https://www.npmjs.com/package/stryker) library.
+This action evaluate Tryber projects with [Stryker](https://www.npmjs.com/package/stryker) library.
 
 ## Inputs
 
@@ -17,7 +17,7 @@ GitHub specific branch
 
 ### `result`
 
-React Scripts unit tests JSON results in base64 format.
+Stryker unit tests JSON results in base64 format.
 
 ### `pr-number`
 
@@ -26,7 +26,7 @@ Pull Request number that trigger build.
 ## Usage example
 
 ```yml
-- uses: betrybe/stryker-evaluator-action@v3
+- uses: betrybe/stryker-evaluator-action@v1
   with:
     repository-test-name: my-org/my-repo
     repository-test-branch: master # master is default
@@ -34,7 +34,7 @@ Pull Request number that trigger build.
 
 ## How to get result output
 ```yml
-- name: React Scripts evaluator
+- name: Stryker evaluator
   id: evaluator
   uses: betrybe/stryker-evaluator-action@v3
 - name: Next step
