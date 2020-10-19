@@ -1,4 +1,7 @@
 # stryker-evaluator-action
+
+THIS README IS DEPRECATED AND HAS TO BE UPDATED.
+
 Stryker evaluator action for Tryber projects
 
 This action evaluate Tryber projects with [Stryker](https://www.npmjs.com/package/stryker) library.
