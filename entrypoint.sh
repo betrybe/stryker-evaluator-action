@@ -8,8 +8,6 @@ git clone --branch $REPOSITORY_BRANCH https://github.com/$REPOSITORY_NAME.git /p
 rm -rf /project-tests/.git
 cp -r /project-tests/* .
 npm install
-npm install -g @stryker-mutator/core
-npm install -g @stryker-mutator/javascript-mutator
 touch result.json
 CONFIGS=$(find ./stryker -type f -name "*.conf.json")
 for config in $CONFIGS; do
