@@ -11,7 +11,7 @@ npm install
 touch result.json
 CONFIGS=$(find ./stryker -type f -name "*.conf.json")
 for config in $CONFIGS; do
-  stryker run $config
+  npx stryker run $config
   node /evaluator.js "$config"
 done
 
