@@ -1,20 +1,10 @@
 # stryker-evaluator-action
 
-THIS README IS DEPRECATED AND HAS TO BE UPDATED.
-
 Stryker evaluator action for Tryber projects
 
 This action evaluate Tryber projects with [Stryker](https://www.npmjs.com/package/stryker) library.
 
 ## Inputs
-
-### `repository-test-name`
-
-GitHub repository that store the tests
-
-### `repository-test-branch`
-
-GitHub specific branch
 
 ## Outputs
 
@@ -22,24 +12,17 @@ GitHub specific branch
 
 Stryker unit tests JSON results in base64 format.
 
-### `pr-number`
-
-Pull Request number that trigger build.
-
 ## Usage example
 
 ```yml
-- uses: betrybe/stryker-evaluator-action@v1
-  with:
-    repository-test-name: my-org/my-repo
-    repository-test-branch: master # master is default
+- uses: betrybe/stryker-evaluator-action@v2
 ```
 
 ## How to get result output
 ```yml
 - name: Stryker evaluator
   id: evaluator
-  uses: betrybe/stryker-evaluator-action@v3
+  uses: betrybe/stryker-evaluator-action@v2
 - name: Next step
   uses: another-github-action
   with:
