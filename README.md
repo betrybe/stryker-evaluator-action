@@ -4,8 +4,6 @@ Stryker evaluator action for Tryber projects
 
 This action evaluate Tryber projects with [Stryker](https://www.npmjs.com/package/stryker) library.
 
-## Inputs
-
 ## Outputs
 
 ### `result`
