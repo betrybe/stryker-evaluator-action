@@ -4,6 +4,14 @@ Stryker evaluator action for Tryber projects
 
 This action evaluate Tryber projects with [Stryker](https://www.npmjs.com/package/stryker) library.
 
+## Inputs
+
+- `pr_author_username`
+
+  **Required**
+
+  Pull Request author username.
+
 ## Outputs
 
 ### `result`

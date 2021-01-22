@@ -5,7 +5,7 @@ const destinyPath = 'result.json';
 const CORRECT_ANSWER_GRADE = 3;
 const WRONG_ANSWER_GRADE = 1;
 
-const githubUsername = process.env.GITHUB_ACTOR || 'no_actor';
+const githubUsername = process.env.INPUT_PR_AUTHOR_USERNAME || 'no_actor';
 const githubRepositoryName = process.env.GITHUB_REPOSITORY || 'no_repository';
 
 const requirementName = process.argv[2].split('/')[2].split('.')[0] + ' mutation test';
