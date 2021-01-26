@@ -14,21 +14,25 @@ This action evaluate Tryber projects with [Stryker](https://www.npmjs.com/packag
 
 ## Outputs
 
-### `result`
+- `result`
 
-Stryker unit tests JSON results in base64 format.
+  Stryker unit tests JSON results in base64 format.
 
 ## Usage example
 
 ```yml
-- uses: betrybe/stryker-evaluator-action@v2
+- uses: betrybe/stryker-evaluator-action@v3
+  with:
+    pr_author_username: ${{ github.event.inputs.pr_author_username }}
 ```
 
 ## How to get result output
 ```yml
 - name: Stryker evaluator
   id: evaluator
-  uses: betrybe/stryker-evaluator-action@v2
+  uses: betrybe/stryker-evaluator-action@v3
+  with:
+    pr_author_username: ${{ github.event.inputs.pr_author_username }}
 - name: Next step
   uses: another-github-action
   with:
