@@ -15,3 +15,4 @@ if [ $? != 0 ]; then
 fi
 
 echo ::set-output name=result::`cat result.json | base64 -w 0`
+cat result.json | base64 -w 0
