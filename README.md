@@ -41,51 +41,40 @@ This action evaluate Tryber projects with [Stryker](https://www.npmjs.com/packag
 
 ## Project contraints
 
-The project that want to use this action should implement unit tests grouping them using `describe` statements.
-Each `describe` statement will be mapped to a requirement.
+The description of the requirement into `.trybe/requirements.json` must be `{FILE_NAME} mutation test` where `FILE_NAME` is the real filename without the extensions.
 
-Example:
+> Example: for the `fetchItem.test.js` validation the requirement description must be `fetchItem mutation test`.
+
+The example `fetchItem.test.js` file's code:
 
 ```javascript
-describe('requirement #1' () => {
+describe('Test #1' () => {
   it('unit test1', () => {});
   it('unit test2', () => {});
   it('unit test3', () => {});
 });
 
-describe('requirement #2' () => {
-  it('unit test1', () => {});
-  it('unit test2', () => {});
-  it('unit test3', () => {});
+describe('Test #2' () => {
+  ...
 });
 
-describe('requirement #3' () => {
-  it('unit test1', () => {});
-  it('unit test2', () => {});
-  it('unit test3', () => {});
+describe('Test #3' () => {
+  ...
 });
 ```
 
-Project repository must create a file called `requirements.json` inside `.trybe` folder.
-
-This file should have the following structure:
+The `.trybe/requirements.json` file must have the following structure:
 
 ```json
 {
   "requirements": [{
-    "description": "requirement #1",
-    "bonus": false
-  }, {
-    "description": "requirement #2",
-    "bonus": true
-  }, {
-    "description": "requirement #3",
+    "description": "fetchItem mutation test",
     "bonus": false
   }]
 }
 ```
 
-where the `"requirement #1"`, `"requirement #2"` and `"requirement #3"` are the requirements and describes names.
+Each new `.test.js` file must have an equivalent `requirement`.
 
 ## Learn about GitHub Actions
 
