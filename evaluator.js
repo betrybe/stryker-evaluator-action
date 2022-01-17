@@ -1,6 +1,6 @@
 const fs = require('fs');
 const testPath = 'reports/mutation/html/bind-mutation-test-report.js';
-const destinyPath = 'result.json';
+const destinyPath = '/tmp/result.json';
 
 const CORRECT_ANSWER_GRADE = 3;
 const WRONG_ANSWER_GRADE = 1;

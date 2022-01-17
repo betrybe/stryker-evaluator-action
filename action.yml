@@ -7,6 +7,20 @@ inputs:
 outputs:
   result:
     description: 'Stryker unit tests JSON results in base64 format.'
+    value: ${{ steps.run_evaluator.outputs.result }}
+
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
+  using: 'composite'
+  steps:
+    - name: Setup NodeJS
+      uses: actions/setup-node@v1.4.4
+      with:
+        node-version: '12'
+
+    - id: run_evaluator
+      shell: bash
+      run: ${{ github.action_path }}/evaluate.sh
+      env:
+        EVALUATOR_FILE: ${{ github.action_path }}
+        INPUT_PR_AUTHOR_USERNAME: ${{ inputs.pr_author_username }}
+        GITHUB_REPOSITORY: ${{ github.repository }}
