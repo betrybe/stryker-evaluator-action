@@ -21,22 +21,33 @@ This action evaluate Tryber projects with [Stryker](https://www.npmjs.com/packag
 ## Usage example
 
 ```yml
-- uses: betrybe/stryker-evaluator-action@v3
+- name: Fetch Stryker evaluator
+  uses: actions/checkout@v2
+  with:
+    repository: betrybe/stryker-evaluator-action
+    ref: v3
+    token: ${{ secrets.GIT_HUB_PAT }}
+    path: .github/actions/stryker-evaluator
+
+- name: Run Stryker evaluation
+  id: evaluator
+  uses: ./.github/actions/stryker-evaluator
   with:
     pr_author_username: ${{ github.event.inputs.pr_author_username }}
 ```
 
 ## How to get result output
 ```yml
-- name: Stryker evaluator
-  id: evaluator
-  uses: betrybe/stryker-evaluator-action@v3
+- name: Run Stryker evaluation
+  id: stryker_evaluator
+  uses: ./.github/actions/stryker-evaluator
   with:
     pr_author_username: ${{ github.event.inputs.pr_author_username }}
+
 - name: Next step
   uses: another-github-action
   with:
-    param: ${{ steps.evaluator.outputs.result }}
+    param: ${{ steps.stryker_evaluator.outputs.result }}
 ```
 
 ## Project contraints
@@ -75,7 +86,3 @@ The `.trybe/requirements.json` file must have the following structure:
 ```
 
 Each new `.test.js` file must have an equivalent `requirement`.
-
-## Learn about GitHub Actions
-
-- https://help.github.com/en/actions/automating-your-workflow-with-github-actions/creating-a-docker-container-action
