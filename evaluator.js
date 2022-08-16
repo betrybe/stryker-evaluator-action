@@ -1,5 +1,6 @@
 const fs = require('fs');
-const testPath = 'reports/mutation/events/00006-onMutationTestReportReady.json';
+
+const testPath = getReportPath();
 const destinyPath = '/tmp/result.json';
 
 const CORRECT_ANSWER_GRADE = 3;
@@ -52,4 +53,11 @@ function getEvaluation(strykerData) {
   }
 
   return requirement;
+}
+
+function getReportPath() {
+  const dirPath = './reports/mutation/events'
+  const files = fs.readdirSync(dirPath);
+  const fileName = files.find(file => file.includes('onMutationTestReportReady'));
+  return `${dirPath}/${fileName}`;
 }
