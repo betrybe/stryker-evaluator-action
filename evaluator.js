@@ -1,5 +1,6 @@
 const fs = require('fs');
-const testPath = 'reports/mutation/html/bind-mutation-test-report.js';
+
+const testPath = getReportPath();
 const destinyPath = '/tmp/result.json';
 
 const CORRECT_ANSWER_GRADE = 3;
@@ -10,14 +11,15 @@ const githubRepositoryName = process.env.GITHUB_REPOSITORY || 'no_repository';
 
 const requirementName = process.argv[2].split('/')[2].split('.')[0] + ' mutation test';
 
-const previsousResults = fs.readFileSync(destinyPath, 'utf8');
+const previousResults = fs.readFileSync(destinyPath, 'utf8');
 
-const evaluations = previsousResults ? JSON.parse(previsousResults).evaluations : [];
+const evaluations = previousResults ? JSON.parse(previousResults).evaluations : [];
 
 let strykerData;
 
 try {
-  strykerData = fs.readFileSync(testPath, 'utf8');
+  strykerJSON = fs.readFileSync(testPath, 'utf8');
+  strykerData = JSON.parse(strykerJSON);
 
   // Delete report file in order not to interfere with the next test
   fs.unlinkSync(testPath);
@@ -41,22 +43,21 @@ function getEvaluation(strykerData) {
 
   if (!strykerData) return requirement;
 
-  const strykerResults = JSON.parse(strykerData.slice(60, (strykerData.length -1)));
+  const fileIndex = Object.keys(strykerData.files)[0]
+  const mutants = strykerData.files[fileIndex].mutants
 
-  // Calculating mutation score
-  let mutations = 0;
-  let score = 0;
-
-  Object.values(strykerResults.files).forEach((testResult) => {
-    testResult.mutants.forEach((mutant) => {
-      if (mutant.status === "Killed") { score += 1 };
-      mutations += 1;
-    })
-  });
-
-  if (score === mutations) {
+  if(mutants.find(m => m.status === 'Survived')) {
+    requirement.grade = WRONG_ANSWER_GRADE;
+  } else {
     requirement.grade = CORRECT_ANSWER_GRADE;
   }
 
   return requirement;
+}
+
+function getReportPath() {
+  const dirPath = './reports/mutation/events'
+  const files = fs.readdirSync(dirPath);
+  const fileName = files.find(file => file.includes('onMutationTestReportReady'));
+  return `${dirPath}/${fileName}`;
 }

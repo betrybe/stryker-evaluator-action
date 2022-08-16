@@ -25,7 +25,7 @@ This action evaluate Tryber projects with [Stryker](https://www.npmjs.com/packag
   uses: actions/checkout@v2
   with:
     repository: betrybe/stryker-evaluator-action
-    ref: v3
+    ref: v3.1
     token: ${{ secrets.GIT_HUB_PAT }}
     path: .github/actions/stryker-evaluator
 
@@ -50,7 +50,7 @@ This action evaluate Tryber projects with [Stryker](https://www.npmjs.com/packag
     param: ${{ steps.stryker_evaluator.outputs.result }}
 ```
 
-## Project contraints
+## Project constraints
 
 The description of the requirement into `.trybe/requirements.json` must be `{FILE_NAME} mutation test` where `FILE_NAME` is the real filename without the extensions.
 

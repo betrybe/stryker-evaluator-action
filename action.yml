@@ -13,9 +13,9 @@ runs:
   using: 'composite'
   steps:
     - name: Setup NodeJS
-      uses: actions/setup-node@v1.4.4
+      uses: actions/setup-node@v3
       with:
-        node-version: '12'
+        node-version: '16'
 
     - id: run_evaluator
       shell: bash
