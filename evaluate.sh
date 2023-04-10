@@ -14,4 +14,4 @@ if [ $? != 0 ]; then
   exit 1
 fi
 
-echo ::set-output name=result::`cat /tmp/result.json | base64 -w 0`
+echo "result=`cat /tmp/result.json | base64 -w 0`" >> $GITHUB_OUTPUT
