@@ -21,6 +21,6 @@
   },
   "homepage": "https://github.com/betrybe/stryker-evaluator-action#readme",
   "devDependencies": {
-    "jest": "^25.3.0"
+    "jest": "^29.6.1"
   }
 }
